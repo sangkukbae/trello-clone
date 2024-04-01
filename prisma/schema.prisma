@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
+}
+
+model Board {
+  id            String  @id @default(uuid())
+  orgId         String
+  title         String
+  starred       Boolean @default(false)
+  // imageId       String
+  imageThumbUrl String  @db.Text
+  imageFullUrl  String  @db.Text
+  // imageUserName String @db.Text
+  // imageLinkHTML String @db.Text
+
+  lists List[]
+
+  closedAt  DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model List {
+  id    String @id @default(uuid())
+  title String
+  order Int
+
+  boardId String
+  board   Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
+
+  cards Card[]
+
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  achievedAt DateTime?
+
+  @@index([boardId])
+}
+
+model Card {
+  id          String    @id @default(uuid())
+  title       String
+  order       Int
+  description String?   @db.Text
+  labels      Json?     @db.Json
+  checklist   Json?     @db.Json
+  startDate   DateTime?
+  dueDate     DateTime?
+  coverImgUrl String?   @db.Text
+
+  listId String
+  list   List   @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  attachments Attachment[]
+
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  achievedAt DateTime?
+
+  @@index([listId])
+}
+
+model Attachment {
+  id       String @id @default(uuid())
+  name     String
+  filePath String @db.Text
+
+  cardId String
+  card   Card   @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([cardId])
+}
