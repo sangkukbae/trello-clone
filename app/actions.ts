@@ -397,22 +397,18 @@ export async function createCard(data: {
 
 export async function updateCardOrder({
 	boardId,
-	listId,
 	items,
 }: {
 	boardId: string;
-	listId: string;
 	items: Card[];
 }): Promise<boolean> {
 	const { orgId } = auth();
 
 	if (!orgId) throw new Error('Not authenticated');
 
-	if (!boardId || !listId || !items) {
+	if (!boardId || !items) {
 		throw new Error('Invalid data');
 	}
-
-	let cards;
 
 	try {
 		const transaction = items.map(card =>
@@ -421,13 +417,13 @@ export async function updateCardOrder({
 					id: card.id,
 				},
 				data: {
-					listId: card.listId,
 					order: card.order,
+					listId: card.listId,
 				},
 			})
 		);
 
-		cards = await prisma.$transaction(transaction);
+		await prisma.$transaction(transaction);
 	} catch (error) {
 		console.error('error:', error);
 		return false;
