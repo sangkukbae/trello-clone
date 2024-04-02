@@ -63,28 +63,29 @@ export const CardContent = (props: CardType) => {
 					))}
 
 				{/* attachment */}
-				<div className="space-y-2">
-					<div className="h-8 flex justify-between items-center">
-						<span className="text-base">Attachments</span>
-						<AttachmentForm>
-							<Button variant="secondary">Add</Button>
-						</AttachmentForm>
-					</div>
-					{props.attachments?.length > 0 &&
-						props.attachments.map(attachment => (
+				{props.attachments?.length > 0 && (
+					<div className="space-y-2">
+						<div className="h-8 flex justify-between items-center">
+							<span className="text-base">Attachments</span>
+							<AttachmentForm>
+								<Button variant="secondary">Add</Button>
+							</AttachmentForm>
+						</div>
+						{props.attachments.map(attachment => (
 							<Attachment key={attachment.id} {...attachment} />
 						))}
-				</div>
+					</div>
+				)}
 				{/* <Activity /> */}
 			</section>
 
 			<aside className="col-span-4 md:col-span-1 space-y-2">
 				<div className="space-y-2">
 					<Label>Add to card</Label>
-					<Button className="w-full justify-start" variant="secondary">
+					{/* <Button className="w-full justify-start" variant="secondary">
 						<UserRound className="w-4 h-4 mr-2" />
 						<span>Members</span>
-					</Button>
+					</Button> */}
 					{/* labels button */}
 					<LabelPicker>
 						<Button

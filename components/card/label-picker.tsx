@@ -16,7 +16,6 @@ import { CardContext } from '.';
 import { cn } from '@/lib/utils';
 import { updateCard } from '@/app/actions';
 import { useParams } from 'next/navigation';
-import { colorClasses } from '@/lib/constants';
 
 export const LabelPicker = ({ children }: { children: ReactNode }) => {
 	const params = useParams();
@@ -121,10 +120,19 @@ export const LabelPicker = ({ children }: { children: ReactNode }) => {
 										/>
 										<Label className="w-full cursor-pointer" htmlFor={color}>
 											<div
-												className={cn(
-													`px-3 h-8 flex items-center rounded-md`,
-													colorClasses[color]
-												)}
+												className={cn(`px-3 h-8 flex items-center rounded-md`, {
+													'bg-red-700 hover:bg-red-800': color === 'red',
+													'bg-orange-700 hover:bg-orange-800':
+														color === 'orange',
+													'bg-yellow-700 hover:bg-yellow-800':
+														color === 'yellow',
+													'bg-green-700 hover:bg-green-800': color === 'green',
+													'bg-blue-700 hover:bg-blue-800': color === 'blue',
+													'bg-indigo-700 hover:bg-indigo-800':
+														color === 'indigo',
+													'bg-purple-700 hover:bg-purple-800':
+														color === 'purple',
+												})}
 											>
 												{labels.find(label => label.color === color)?.title ??
 													''}

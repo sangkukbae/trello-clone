@@ -27,7 +27,6 @@ import { CardContent } from '@/components/card/content';
 import type { CardType, Checklist, ImageInfo, Label } from '@/lib/types';
 import {
 	BUCKET_NAME,
-	colorClasses,
 	defaultColorList,
 	defaultImageList,
 } from '@/lib/constants';
@@ -234,10 +233,20 @@ export const CardContainer = ({
 										<Tooltip key={l.color}>
 											<TooltipTrigger asChild>
 												<span
-													className={cn(
-														'min-w-10 w-fit h-2 rounded-md',
-														colorClasses[l.color]
-													)}
+													className={cn('min-w-10 w-fit h-2 rounded-md', {
+														'bg-red-700 hover:bg-red-800': l.color === 'red',
+														'bg-orange-700 hover:bg-orange-800':
+															l.color === 'orange',
+														'bg-yellow-700 hover:bg-yellow-800':
+															l.color === 'yellow',
+														'bg-green-700 hover:bg-green-800':
+															l.color === 'green',
+														'bg-blue-700 hover:bg-blue-800': l.color === 'blue',
+														'bg-indigo-700 hover:bg-indigo-800':
+															l.color === 'indigo',
+														'bg-purple-700 hover:bg-purple-800':
+															l.color === 'purple',
+													})}
 												></span>
 											</TooltipTrigger>
 											<TooltipContent>

@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { LabelPicker } from './label-picker';
-import { colorClasses } from '@/lib/constants';
 
 export const Labels = () => {
 	const { labels, setCurrentLabel } = useContext(CardContext);
@@ -21,7 +20,15 @@ export const Labels = () => {
 							.map(({ color, title }) => (
 								<LabelPicker key={color}>
 									<Button
-										className={cn('w-fit min-w-12', colorClasses[color])}
+										className={cn('w-fit min-w-12', {
+											'bg-red-700 hover:bg-red-800': color === 'red',
+											'bg-orange-700 hover:bg-orange-800': color === 'orange',
+											'bg-yellow-700 hover:bg-yellow-800': color === 'yellow',
+											'bg-green-700 hover:bg-green-800': color === 'green',
+											'bg-blue-700 hover:bg-blue-800': color === 'blue',
+											'bg-indigo-700 hover:bg-indigo-800': color === 'indigo',
+											'bg-purple-700 hover:bg-purple-800': color === 'purple',
+										})}
 										variant="secondary"
 										onClick={() => setCurrentLabel(color)}
 									>

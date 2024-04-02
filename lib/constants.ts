@@ -14,16 +14,6 @@ export const defaultColorList = [
 	'volcano',
 ];
 
-export const colorClasses: Record<string, string> = {
-	red: 'bg-red-700 hover:bg-red-800',
-	orange: 'bg-orange-700 hover:bg-orange-800',
-	yellow: 'bg-yellow-700 hover:bg-yellow-800',
-	green: 'bg-green-700 hover:bg-green-800',
-	blue: 'bg-blue-700 hover:bg-blue-800',
-	indigo: 'bg-indigo-700 hover:bg-indigo-800',
-	purple: 'bg-purple-700 hover:bg-purple-800',
-};
-
 export const defaultImageList = [
 	{
 		id: 'kmREfhcy5q0',
