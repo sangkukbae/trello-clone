@@ -1,5 +1,7 @@
 # Fullstack Trello Clone: Next.js 14, Server Actions, React, Prisma, Tailwind, Shadcn.ui, Supabase
 
+<img width="1466" alt="스크린샷 2024-04-02 오후 9 30 10" src="https://github.com/sangkukbae/trello-clone/assets/139692006/67e44a56-d65f-4952-9aaf-ba5fbb9fff95">
+
 This is repository for Fullstack Trello Clone: Next.js 14, Server Actions, React, Prisma, Tailwind, Shadcn.ui, Supabase
 
 ### Key Features:
