@@ -27,7 +27,6 @@ import { Input } from '@/components/ui/input';
 
 export const Toolbar = ({ board }: { board: Board }) => {
 	const [title, setTitle] = useState(board.title);
-	console.log('title:', title);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const inputRef = useRef<HTMLInputElement>(null);

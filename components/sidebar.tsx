@@ -11,23 +11,15 @@ import {
 	PlusIcon,
 	Star,
 	TrelloIcon,
-	UserRound,
 } from 'lucide-react';
 
 import { type Board } from '@prisma/client';
 import { updateBoard } from '@/app/actions';
 import { useSidebarStore } from '@/store';
-import { cn, slugfy } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 import { Separator } from '@/components/ui/separator';
 import { Button, buttonVariants } from '@/components/ui/button';
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from '@/components/ui/dialog';
 import {
 	Popover,
 	PopoverContent,
@@ -40,11 +32,9 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { InviteForm } from '@/components/invite-form';
 import { CreateBoard } from '@/components/create-board';
 import { Skeleton } from './ui/skeleton';
 import { toast } from 'sonner';
-import { useScreen, useWindowSize } from 'usehooks-ts';
 
 interface SidebarProps {
 	boards: Board[];
@@ -57,7 +47,6 @@ export const Sidebar = (props: SidebarProps) => {
 	const router = useRouter();
 	const { organization, isLoaded } = useOrganization();
 	const { isSidebarExpanded, toggleSidebar } = useSidebarStore();
-	console.log('isSidebarExpanded:', isSidebarExpanded);
 
 	const [settingsPopoverOpen, setSettingsPopoverOpen] =
 		useState<Record<string, boolean>>();
@@ -75,6 +64,7 @@ export const Sidebar = (props: SidebarProps) => {
 		window.addEventListener('resize', () => handleSidebar());
 
 		return () => handleSidebar();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

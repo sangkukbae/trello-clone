@@ -125,7 +125,6 @@ export const CardContainer = ({
 		if (error) throw new Error(error.message);
 
 		if (data) {
-			console.log('data:', data);
 			await createAttachment(params.boardId as string, {
 				cardId: card.id,
 				name: file.name,
@@ -146,10 +145,9 @@ export const CardContainer = ({
 		uploadFile(filePath, file);
 	}, []);
 
-	const { getRootProps, getInputProps, isDragActive, isFocused } = useDropzone({
+	const { getRootProps, getInputProps, isDragActive } = useDropzone({
 		onDrop,
 	});
-	console.log('isFocused:', isFocused);
 
 	useOnClickOutside(formRef, () => setIsEditingTitle(false));
 
@@ -177,6 +175,7 @@ export const CardContainer = ({
 		};
 
 		updateCoverImgUrl();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [cover]);
 
 	const getCoverImg = (cover: string) => {

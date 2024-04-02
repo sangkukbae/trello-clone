@@ -129,7 +129,6 @@ export const DatePicker = (props: {
 								);
 								if (isValid(date)) {
 									setDueDate(date);
-									console.log('date:', date);
 								} else {
 									setDueDate(undefined);
 								}

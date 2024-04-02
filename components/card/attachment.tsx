@@ -155,7 +155,6 @@ export const Attachment = (props: AttachmentType) => {
 
 									const formData = new FormData(e.target as HTMLFormElement);
 									const name = formData.get('name') as string;
-									console.log('name:', name);
 
 									if (!name) return;
 

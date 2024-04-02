@@ -11,7 +11,6 @@ export default authMiddleware({
 			}
 
 			const orgSelection = new URL(path, req.url);
-			console.log('orgSelection:', orgSelection);
 			return NextResponse.redirect(orgSelection);
 		}
 

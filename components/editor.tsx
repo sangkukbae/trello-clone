@@ -41,6 +41,8 @@ export const Editor = forwardRef<Quill | undefined, EditorProps>(
 				}
 				container.innerHTML = '';
 			};
+
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, []);
 
 		return (

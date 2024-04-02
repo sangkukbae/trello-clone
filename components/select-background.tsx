@@ -211,6 +211,7 @@ const PhotosBackground = () => {
 
 	useEffect(() => {
 		fetchImages();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
@@ -228,6 +229,7 @@ const PhotosBackground = () => {
 		if (page > 1) {
 			fetchImages();
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [page]);
 
 	if (isLoading) {
