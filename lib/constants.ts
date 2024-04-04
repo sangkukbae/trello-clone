@@ -1,3 +1,4 @@
+import { Folder } from 'lucide-react';
 export const BUCKET_NAME = 'trello-clone';
 
 export const PUBLIC_BUCKET_URL = `https://yqpzmbamlhqjuhaqfqrr.supabase.co/storage/v1/object/public/${BUCKET_NAME}`;
@@ -675,5 +676,26 @@ export const defaultImageList = [
 		},
 		views: 6488535,
 		downloads: 3638,
+	},
+];
+
+export const contents = [
+	{
+		title: 'Boards',
+		description:
+			'Trello boards keep tasks organized and work moving forward. In a glance, see everything from “things to do” to “aww yeah, we did it!”',
+		image: '/images/carousel-image-boards.webp',
+	},
+	{
+		title: 'Lists',
+		description:
+			'The different stages of a task. Start as simple as To Do, Doing or Done—or build a workflow custom fit to your team’s needs. There’s no wrong way to Trello.',
+		image: '/images/carousel-image-lists.webp',
+	},
+	{
+		title: 'Cards',
+		description:
+			'Cards represent tasks and ideas and hold all the information to get the job done. As you make progress, move cards across lists to show their status.',
+		image: '/images/carousel-image-cards.webp',
 	},
 ];

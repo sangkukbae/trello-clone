@@ -90,3 +90,7 @@
 	max-height: 500px; /* Adjust as necessary */
 	overflow-y: auto; /* Ensures scrollbar is shown when needed */
 }
+
+.t-container {
+	@apply max-w-[688px] md:max-w-[960px] lg:max-w-[1140px] h-full mx-auto px-1;
+}
